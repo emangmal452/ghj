@@ -4,15 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>final</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
             direction: ltr;
+            background-color: #a202ff;
+               background:linear-gradient(11deg, #a202ff 0%, #38529c 100%);
         }
         .nav {
-            background-color: #02e1ff;
+        
             padding: 10px 20px;
             display: flex;
             justify-content: space-around;
@@ -20,11 +23,13 @@
             width: 100%;
             top: 0;
             z-index: 1001;
+   background:linear-gradient(11deg, #a202ff 0%, #1e3a8a 100%);
         }
         .nav a, .nav span {
-            color: #000;
+            color: #ffffff;
             text-decoration: none;
             padding: 5px 10px;
+              background-color: #3902ff00;
         }
         .nav .login, .nav .logout {
             background-color: #1e3a8a;
@@ -34,8 +39,8 @@
             cursor: pointer;
         }
         .header {
-            background-image: url(imgs/back\ ground.jpeg);
-            background-size: 800px;
+            background-image: url(imgs/back\ ground.jpeg) ;
+            background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
             height: 400px;
@@ -46,7 +51,7 @@
             justify-content: center;
             margin-top: 50px;
             position: relative;
-            
+          
         }
         .header::before {
             content: '';
@@ -85,32 +90,45 @@
             background-color: #f5f7fa;
         }
         .cards {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            margin-top: 20px;
+        display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: stretch;
+    flex-wrap: nowrap;
+    gap: 20px;
+    overflow-x: auto;
+    margin-top: 20px;
+    width: 100%;
+    max-width: 100vw;
+
         }
         .card {
             background-color: white;
             width: 300px;
             padding: 20px;
-            margin: 10px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
         }
+        .card:hover {
+            transform: scale(1.05);
+        }
+        
         .our-services .card {
-            background-color: #1e3a8a;
+            background-color: #1e408a;
             color: white;
         }
         .our-impact .card {
             background-color: rgba(30, 58, 138, 0.1);
             color: #1e3a8a;
         }
+        .section.contact-form{
+            padding: 0;
+        }
         .contact-form {
-            max-width: 500px;
             margin: 0 auto;
             background-color: white;
-            padding: 20px;
+            /* padding: 20px; */
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
@@ -163,129 +181,125 @@
             background-color: #1a202c;
             color: white;
             padding: 20px;
-            text-align: center;
+
         }
         .footer a {
             color: #60a5fa;
             text-decoration: none;
             margin: 0 10px;
         }
+        #project {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    margin-top: 20px;
+    padding: 40px 0;
+}
+#project .card {
+    min-width: 300px;
+   justify-content: space-between;
+}
     </style>
 </head>
 <body>
     <div class="nav">
-        <a href="#" style="font-size: 50px;">CODNA</a>
-        <a href="#">Home</a>
-        <a href="#">Features</a>
-        <a href="#">Services</a>
-        <span id="authButton" class="login" style="font-size: 50px;">Login</span>
+        <a href="#" style="font-size: 30px; color: #ffffff;"><i class="fa-solid fa-plane"></i>Travel Planner</a>
+        <a href="#" style="font-size: small; color: rgb(226, 226, 226);">Home</a>
+        <a href="#" style="font-size: small; color: rgb(173, 173, 173);">Destinations</a>
+        <a href="#" style="font-size: small; color: rgb(173, 173, 173);">My Trips</a>
+        <a href="#"style="font-size: small; color: rgb(173, 173, 173);">Favorites</a>
+        <span id="authButton" class="login" style="background-color: #ffffff00; border: 2px solid #ffffff;"><i class="fa-solid fa-user"></i>Login/Register</span>
     </div>
     <div class="header">
-        <h1>Modern digital solutions for excellence</h1>
-        <p>We elevate digital businesses by helping you perform better.</p>
+        <h1>Plan Your Dream Vacation</h1>
+        <p>Discover amazing destinations and organize your perfect trip with our comprehensive planning platform.</p>
         <div class="buttons">
-            <a href="#">Explore the features</a>
-            <a href="#">Contact us</a>
+            <a href="#" style="margin: 50px;"> <i class="fa-solid fa-magnifying-glass"  ></i>Explore Destinations</a>
+            <a href="#" style="background-color: #1e3b8a00; border: 2px solid #ffffff;"><i class="fa-solid fa-user"></i>Get Started</a>
         </div>
     </div>
-    <div class="section why-choose-us">
-        <h2>Why choose us?</h2>
-        <p>Our platform provides everything you need to easily build your digital presence.</p>
-        <div class="cards">
-            <div class="card">
-                <h3>Lightning speed</h3>
-                <p>Ultra-fast loading for perfect performance with smooth animations and transitions.</p>
-            </div>
-            <div class="card">
-                <h3>Fully responsive</h3>
-                <p>Looks great on all devices from phones to large desktop screens</p>
-            </div>
-            <div class="card">
-                <h3>Customizable</h3>
-                <p>A custom formula that perfectly fits your brand identity</p>
-            </div>
-        </div>
+    
+  <div class="cards no-gap">
+    <div class="card" style="justify-content: space-around; align-items: center;">
+        <i class="fa-solid fa-magnifying-glass" style="font-size: 80px; color:#7760fa;"></i>
+        <h2>Discover Destinations</h2>
+        <p>Explore the world's most beautiful places.</p>
+        <p>Ultra-fast loading for perfect performance with smooth animations and transitions.</p>
     </div>
-    <div class="section our-services">
+    <div class="card">
+        <i class="fa-solid fa-calendar-days" style="font-size: 80px;  color: #7760fa;"></i>
+        <h3>Plan Your Trip</h3>
+        <p>Looks great on all devices from phones to large desktop screens</p>
+    </div>
+    <div class="card">
+        <i class="fa-solid fa-cloud-sun" style="font-size: 80px; color: #7760fa;"></i>
+        <h3>Weather Info</h3>
+        <p>A custom formula that perfectly fits your brand identity</p>
+    </div>
+     <div class="card">
+<i class="fa-solid fa-share-nodes" style="font-size: 80px; color: #7760fa;"></i>
+        <h3>Share & Collaborate</h3>
+        <p>A custom formula that perfectly fits your brand identity</p>
+    </div>
+</div> 
+    <!-- <div class="section our-services">
         <h2>Our services</h2>
         <p>We provide advanced digital solutions to develop your business.</p>
         <div class="cards">
             <div class="card">
                 <h3>Web development</h3>
                 <p>We create sophisticated websites with excellent performance.</p>
-                <a href="#" style="color: white;">Learn more</a>
+                
             </div>
             <div class="card">
                 <h3>Digital Marketing</h3>
                 <p>Strategies to increase your online presence.</p>
-                <a href="#" style="color: white;">Learn more</a>
+             
             </div>
             <div class="card">
                 <h3>UI/UX Design</h3>
                 <p>Inspired designs for an amazing user experience.</p>
-                <a href="#" style="color: white;">Learn more</a>
+  
             </div>
-        </div>
+        </div> -->
     </div>
+    <section id="project"></section>
     <div class="section our-impact">
-        <h2>Our impact</h2>
-        <p>The numbers speak for our dedication and success.</p>
+        <h2><i class="fa-solid fa-list"></i>Travel statistics</h2>
+        <p>Join thousands of satisfied travelers who have used our platform.</p>
         <div class="cards">
             <div class="card">
-                <h3>25</h3>
-                <p>Happy customers</p>
+                <h3>6+</h3>
+                <p>Destinations</p>
             </div>
             <div class="card">
-                <h3>150</h3>
-                <p>Completed projects</p>
+                <h3>3+</h3>
+                <p>Active users</p>
             </div>
             <div class="card">
-                <h3>80</h3>
-                <p>Awards we have won</p>
+                <h3>6+</h3>
+                <p>Trips planned</p>
             </div>
             <div class="card">
-                <h3>88</h3>
-                <p>Team members</p>
+                <h3>4.8</h3>
+                <p>User Rating</p>
             </div>
         </div>
     </div>
-    <div class="section contact-form">
-        <h2>Contact us</h2>
-        <p>We would love to hear your feedback.</p>
-        <form>
-            <input type="text" placeholder="Your name" required>
-            <input type="email" placeholder="Your email" required>
-            <textarea placeholder="Your message" rows="5" required></textarea>
-            <button type="submit">Send the message</button>
-        </form>
+    <div class="section contact-form" style="background-color: #8d02ff;">
+
+           <div class="head" style="background-color: #8d02ff;">
+        <h1 style="color: white;"><i class="fa-solid fa-rocket"></i>Ready to start your journey?</h1>
+        <p style="color: white;">Discover amazing destinations and organize your perfect trip with our comprehensive planning platform.</p>
+        <div class="buttons">
+            <button><i class="fa-solid fa-magnifying-glass"></i>Explore Destinations</button>
+           <button style="color: #ffffff; border: 2px solid #ffffff;"> <i class="fa-solid fa-user-plus" ></i>Create Account</button>
+        </div>
     </div>
-    <div class="footer">
-        <div>
-            <h3>CODNA</h3>
-            <p>Modern digital solutions for digital business growth.</p>
-        </div>
-        <div>
-            <h4>Links</h4>
-            <a href="#">Home</a>
-            <a href="#">Features</a>
-            <a href="#">Services</a>
-            <a href="#">Contact us</a>
-        </div>
-        <div>
-            <h4>Services</h4>
-            <a href="#">Web development</a>
-            <a href="#">Digital Marketing</a>
-            <a href="#">UI/UX Design</a>
-        </div>
-        <div>
-            <h4>Contact</h4>
-            <p>Egypt : sohag city</p>
-            <p>phone : 01030637124</p>
-            <p>Email : hady@gmail.com</p>
-        </div>
-        <p>2025 CODNA. All rights reserved.</p>
-    </div>
-    <div class="login-form">
+  
+    <!-- <div class="login-form">
         <h2>log in</h2>
         <form id="loginForm">
             <input type="text" id="username" placeholder= "User name"required>
@@ -293,7 +307,41 @@
             <input type="password" id="password" placeholder="Password" required>
             <button type="submit">Log in</button>
         </form>
+    </div> -->
+      <div class="footer">
+        <div class="footer-content">
+            <h3 style="text-align: start;"><i class="fa-solid fa-plane"></i>Travel Planner</h3>
+            <p  style="text-align: start;">Modern digital solutions for digital business growth.</p>
+        </div>
+       <p style="text-align: end;">@2025 Travel Planner. All rights reserved.</p>
     </div>
+    
+    <script>
+        fetch("https://edu-me01.github.io/Traval-task/api/data.json") 
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                
+                 const projectDiv = document.getElementById('project');
+            data.destinations.slice(0, 3).forEach(item => {
+                const card = document.createElement('div');
+                    card.classList.add('card');
+                    card.innerHTML = `
+                      <img  src="${item.image}" alt="${item.title}" style="width: 100%; height: auto; border-radius: 10px;">
+                        <h3>${item.name}</h3>
+                         <h4>${item.description.slice(0,80)}...</h4>
+
+                         <div style="display: flex; justify-content: space-between; align-items: center; ">
+                             <p style=" color: white;background:linear-gradient(11deg, #a202ff 0%, #1e3a8a 100%); padding: 5px 10px; border-radius: 5px;">${item.country}</p>
+                  <button style="background-color: #1e3a8a; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; background:linear-gradient(11deg, #a202ff 0%, #1e3a8a 100%);"><i class="fa-solid fa-eye"></i>View Details</button>
+                    </div>
+                    `;
+             
+     projectDiv.appendChild(card);
+                });
+            })
+            .catch(error => console.error('Error fetching data:', error));
+    </script>
     <script>
         
         const authButton = document.getElementById('authButton');
@@ -303,28 +351,30 @@
                 document.querySelector('.login-form').classList.toggle('active');
             }
         });
-        const loginForm = document.getElementById('loginForm');
+        var loginForm = document.getElementById('loginForm');
         let isLoggedIn = false;
         let validUsers = {
            'hady mohamed' : { email: 'zw@g.c', password:'password123' }
         };
-        loginForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            const username = document.getElementById('username').value;
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
-            if (validUsers['user1'].email === email && validUsers['user1'].password === password) {
-                isLoggedIn = true;
-                authButton.textContent = `أهلاً، ${username}`;
-                authButton.classList.remove('login');
-                authButton.classList.add('logout');
-                authButton.onclick = logout;
-                document.querySelector('.login-form').classList.remove('active');
-                alert('تم تسجيل الدخول بنجاح!');
-            } else {
-                alert('بيانات تسجيل الدخول غير صحيحة.');
-            }
-        });
+        // loginForm.addEventListener('submit', function(e) {
+        //     e.preventDefault();
+        //     const username = document.getElementById('username').value;
+        //     const email = document.getElementById('email').value;
+        //     const password = document.getElementById('password').value;
+        //     if (validUsers['user1'].email === email && validUsers['user1'].password === password) {
+        //         isLoggedIn = true;
+        //         authButton.textContent = `أهلاً، ${username}`;
+        //         authButton.classList.remove('login');
+        //         authButton.classList.add('logout');
+        //         authButton.onclick = logout;
+        //         document.querySelector('.login-form').classList.remove('active');
+        //         alert('تم تسجيل الدخول بنجاح!');
+        //     } else {
+        //         alert('بيانات تسجيل الدخول غير صحيحة.');
+        //     }
+        // });
+      
+      
         function logout(e) {
             e.preventDefault();
             isLoggedIn = false;
