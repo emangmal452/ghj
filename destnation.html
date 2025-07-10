@@ -214,11 +214,76 @@
   background-color: white;
   color: #6c5ce7;
   border: 1px solid #6c5ce7;
-} 
+}
+ .topbar {
+      background: linear-gradient(to right, #7f00ff, #e100ff);
+      color: white;
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    .topbar .left-side {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+    .topbar .logo {
+      font-weight: bold;
+      font-size: 18px;
+    }
+    .topbar .nav-links a {
+      color: white;
+      margin: 0 5px;
+      text-decoration: none;
+      font-weight: 500;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+    .topbar .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0%;
+      height: 2px;
+      background-color: white;
+      transition: width 0.3s ease;
+    }
+    .topbar .nav-links a:hover::after {
+      width: 100%;
+    }
+    .topbar .nav-links a:hover {
+      color: #ffdfff;
+    }
+    .topbar .login-btn {
+      border: 1px solid white;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 14px;
+      color: white;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+    .topbar .login-btn:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
   </style>
 </head>
 <body>
-
+<div class="topbar">
+    <div class="left-side">
+      <div class="logo"><i class="fa-solid fa-plane-departure"></i> Travel Planner</div>
+      <div class="nav-links">
+        <a href="#"><i class="fa-solid fa-house"></i> Home</a>
+        <a href="#"><i class="fa-solid fa-map-location-dot"></i> Destinations</a>
+        <a href="#"><i class="fa-solid fa-suitcase-rolling"></i> My Trips</a>
+        <a href="#"><i class="fa-solid fa-heart"></i> Favorites</a>
+      </div>
+    </div>
+    <a class="login-btn" href="#"><i class="fa-solid fa-right-to-bracket"></i> Login/Register</a>
+  </div>
   <div class="header">
     <h1>🌍 Explore Destinations</h1>
     <p>Discover amazing places around the world and plan your next adventure</p>
