@@ -1,397 +1,743 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>final</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Travel Planner - Home</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- SweetAlert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- Custom CSS -->
+    
     <style>
         body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            direction: ltr;
-            background-color: #a202ff;
-               background:linear-gradient(11deg, #a202ff 0%, #38529c 100%);
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #7f00ff 0%, #e100ff 100%);
+            min-height: 100vh;
         }
-        .nav {
-        
-            padding: 10px 20px;
-            display: flex;
-            justify-content: space-around;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1001;
-   background:linear-gradient(11deg, #a202ff 0%, #1e3a8a 100%);
-        }
-        .nav a, .nav span {
-            color: #ffffff;
-            text-decoration: none;
-            padding: 5px 10px;
-              background-color: #3902ff00;
-        }
-        .nav .login, .nav .logout {
-            background-color: #1e3a8a;
-            color: white;
-            padding: 5px 10px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .header {
-            background-image: url(imgs/back\ ground.jpeg) ;
+        .topbar {
+      background: linear-gradient(to right, #7f00ff, #e100ff);
+      color: white;
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    .topbar .left-side {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+    .topbar .logo {
+      font-weight: bold;
+      font-size: 18px;
+    }
+    .topbar .nav-links a {
+      color: white;
+      margin: 0 5px;
+      text-decoration: none;
+      font-weight: 500;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+    .topbar .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0%;
+      height: 2px;
+      background-color: white;
+      transition: width 0.3s ease;
+    }
+    .topbar .nav-links a:hover::after {
+      width: 100%;
+    }
+    .topbar .nav-links a:hover {
+      color: #ffdfff;
+    }
+    .topbar .login-btn {
+      border: 1px solid white;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 14px;
+      color: white;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+    .topbar .login-btn:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+        .hero-section {
+            background:  url('https://images.unsplash.com/photo-1506929562872-bb421503ef21?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1368&q=80');
             background-size: cover;
             background-position: center;
-            background-repeat: no-repeat;
-            height: 400px;
-            text-align: center;
-            color: white;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            margin-top: 50px;
+            background-attachment: fixed;
+            padding: 8rem 0 6rem;
             position: relative;
-          
+            overflow: hidden;
         }
-        .header::before {
+        
+        .hero-section::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5); /* طبقة تحكم في الشفافية */
-            z-index: 1;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/><circle cx="50" cy="10" r="0.5" fill="white" opacity="0.1"/><circle cx="10" cy="60" r="0.5" fill="white" opacity="0.1"/><circle cx="90" cy="40" r="0.5" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
         }
-        .header h1, .header p, .header .buttons {
+        
+        .hero-content {
             position: relative;
             z-index: 2;
         }
-        .header h1 {
-            font-size: 2.5em;
-            margin: 0;
-        }
-        .header p {
-            font-size: 1.2em;
-        }
-        .header .buttons a {
-            margin: 10px;
-            padding: 10px 20px;
-            background-color: #1e3a8a;
+        
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
             color: white;
-            text-decoration: none;
-            border-radius: 5px;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
         }
-        .section {
-            padding: 50px 20px;
+        
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+            border-radius: 12px;
+            padding: 1rem 2rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+        }
+        
+        .btn-outline-light {
+            border: 2px solid white;
+            color: white;
+            border-radius: 12px;
+            padding: 1rem 2rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-outline-light:hover {
+            background: white;
+            color: #667eea;
+            transform: translateY(-2px);
+        }
+        
+        .features-section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 4rem 2rem;
+            margin: -3rem auto 4rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 3;
+            max-width: 1200px;
+        }
+        
+        .feature-card {
             text-align: center;
+            padding: 2rem 1rem;
+            transition: all 0.3s ease;
         }
-        .why-choose-us, .our-services, .our-impact {
-            background-color: #f5f7fa;
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
         }
-        .cards {
-        display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: stretch;
-    flex-wrap: nowrap;
-    gap: 20px;
-    overflow-x: auto;
-    margin-top: 20px;
-    width: 100%;
-    max-width: 100vw;
-
+        
+        .feature-icon {
+            font-size: 3rem;
+            color: #667eea;
+            margin-bottom: 1.5rem;
         }
-        .card {
-            background-color: white;
-            width: 300px;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        
+        .feature-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #495057;
+            margin-bottom: 1rem;
+        }
+        
+        .feature-text {
+            color: #6c757d;
+            line-height: 1.6;
+        }
+        
+        .destinations-section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 4rem 2rem;
+            margin-bottom: 4rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #495057;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        
+        .section-subtitle {
+            color: #6c757d;
+            text-align: center;
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+        }
+        
+        .destination-card {
+            background: white;
+            border: none;
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            height: 100%;
+        }
+        
+        .destination-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .destination-card img {
+            height: 200px;
+            object-fit: cover;
             transition: transform 0.3s ease;
         }
-        .card:hover {
+        
+        .destination-card:hover img {
             transform: scale(1.05);
         }
         
-        .our-services .card {
-            background-color: #1e408a;
+        .card-body {
+            padding: 1.5rem;
+        }
+        
+        .card-title {
+            font-weight: 600;
+            color: #495057;
+            margin-bottom: 0.5rem;
+        }
+        
+        .card-text {
+            color: #6c757d;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        
+        .region-badge {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
         }
-        .our-impact .card {
-            background-color: rgba(30, 58, 138, 0.1);
-            color: #1e3a8a;
+        
+        .stats-section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 4rem 2rem;
+            margin-bottom: 4rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
         }
-        .section.contact-form{
-            padding: 0;
+        
+        .stat-item {
+            text-align: center;
+            padding: 2rem 1rem;
         }
-        .contact-form {
-            margin: 0 auto;
-            background-color: white;
-            /* padding: 20px; */
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 0.5rem;
         }
-        .contact-form input, .contact-form textarea {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ddd;
-            border-radius: 5px;
+        
+        .stat-label {
+            color: #6c757d;
+            font-weight: 500;
+            font-size: 1.1rem;
         }
-        .contact-form button {
-            background-color: #1e3a8a;
+        
+        .cta-section {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.9) 0%, rgba(118, 75, 162, 0.9) 100%);
+            border-radius: 20px;
+            padding: 4rem 2rem;
+            margin-bottom: 4rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/><circle cx="50" cy="10" r="0.5" fill="white" opacity="0.1"/><circle cx="10" cy="60" r="0.5" fill="white" opacity="0.1"/><circle cx="90" cy="40" r="0.5" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
+        }
+        
+        .cta-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .cta-title {
+            font-size: 2.5rem;
+            font-weight: 700;
             color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
+            margin-bottom: 1rem;
         }
-        .login-form {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            z-index: 1000;
+        
+        .cta-text {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
         }
-        .login-form.active {
-            display: block;
+        
+        .loading-spinner {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 3rem;
         }
-        .login-form input {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ddd;
-            border-radius: 5px;
+        
+        .spinner-border {
+            width: 3rem;
+            height: 3rem;
+            color: #667eea;
         }
-        .login-form button {
-            background-color: #1e3a8a;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
+        
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 4rem 0 3rem;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .features-section {
+                margin: -2rem 1rem 3rem;
+                padding: 2rem 1rem;
+            }
+            
+            .destinations-section {
+                margin: 0 1rem 3rem;
+                padding: 2rem 1rem;
+            }
+            
+            .stats-section {
+                margin: 0 1rem 3rem;
+                padding: 2rem 1rem;
+            }
+            
+            .cta-section {
+                margin: 0 1rem 3rem;
+                padding: 2rem 1rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .cta-title {
+                font-size: 2rem;
+            }
         }
-        .footer {
-            background-color: #1a202c;
-            color: white;
-            padding: 20px;
-
-        }
-        .footer a {
-            color: #60a5fa;
-            text-decoration: none;
-            margin: 0 10px;
-        }
-        #project {
-    display: flex;
-    flex-direction: row;
-    gap: 20px;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    margin-top: 20px;
-    padding: 40px 0;
-}
-#project .card {
-    min-width: 300px;
-   justify-content: space-between;
-}
     </style>
 </head>
 <body>
-    <div class="nav">
-        <a href="#" style="font-size: 30px; color: #ffffff;"><i class="fa-solid fa-plane"></i>Travel Planner</a>
-        <a href="#" style="font-size: small; color: rgb(226, 226, 226);">Home</a>
-        <a href="#" style="font-size: small; color: rgb(173, 173, 173);">Destinations</a>
-        <a href="#" style="font-size: small; color: rgb(173, 173, 173);">My Trips</a>
-        <a href="#"style="font-size: small; color: rgb(173, 173, 173);">Favorites</a>
-        <span id="authButton" class="login" style="background-color: #ffffff00; border: 2px solid #ffffff;"><i class="fa-solid fa-user"></i>Login/Register</span>
-    </div>
-    <div class="header">
-        <h1>Plan Your Dream Vacation</h1>
-        <p>Discover amazing destinations and organize your perfect trip with our comprehensive planning platform.</p>
-        <div class="buttons">
-            <a href="#" style="margin: 50px;"> <i class="fa-solid fa-magnifying-glass"  ></i>Explore Destinations</a>
-            <a href="#" style="background-color: #1e3b8a00; border: 2px solid #ffffff;"><i class="fa-solid fa-user"></i>Get Started</a>
+    <div class="topbar">
+        <div class="left-side">
+          <div class="logo"><i class="fa-solid fa-plane-departure"></i> Travel Planner</div>
+          <div class="nav-links">
+            <a href="#"><i class="fa-solid fa-house"></i> Home</a>
+            <a href="#"><i class="fa-solid fa-map-location-dot"></i> Destinations</a>
+            <a href="#"><i class="fa-solid fa-suitcase-rolling"></i> My Trips</a>
+            <a href="#"><i class="fa-solid fa-heart"></i> Favorites</a>
+          </div>
         </div>
-    </div>
-    
-  <div class="cards no-gap">
-    <div class="card" style="justify-content: space-around; align-items: center;">
-        <i class="fa-solid fa-magnifying-glass" style="font-size: 80px; color:#7760fa;"></i>
-        <h2>Discover Destinations</h2>
-        <p>Explore the world's most beautiful places.</p>
-        <p>Ultra-fast loading for perfect performance with smooth animations and transitions.</p>
-    </div>
-    <div class="card">
-        <i class="fa-solid fa-calendar-days" style="font-size: 80px;  color: #7760fa;"></i>
-        <h3>Plan Your Trip</h3>
-        <p>Looks great on all devices from phones to large desktop screens</p>
-    </div>
-    <div class="card">
-        <i class="fa-solid fa-cloud-sun" style="font-size: 80px; color: #7760fa;"></i>
-        <h3>Weather Info</h3>
-        <p>A custom formula that perfectly fits your brand identity</p>
-    </div>
-     <div class="card">
-<i class="fa-solid fa-share-nodes" style="font-size: 80px; color: #7760fa;"></i>
-        <h3>Share & Collaborate</h3>
-        <p>A custom formula that perfectly fits your brand identity</p>
-    </div>
-</div> 
-    <!-- <div class="section our-services">
-        <h2>Our services</h2>
-        <p>We provide advanced digital solutions to develop your business.</p>
-        <div class="cards">
-            <div class="card">
-                <h3>Web development</h3>
-                <p>We create sophisticated websites with excellent performance.</p>
-                
-            </div>
-            <div class="card">
-                <h3>Digital Marketing</h3>
-                <p>Strategies to increase your online presence.</p>
-             
-            </div>
-            <div class="card">
-                <h3>UI/UX Design</h3>
-                <p>Inspired designs for an amazing user experience.</p>
-  
-            </div>
-        </div> -->
-    </div>
-    <section id="project"></section>
-    <div class="section our-impact">
-        <h2><i class="fa-solid fa-list"></i>Travel statistics</h2>
-        <p>Join thousands of satisfied travelers who have used our platform.</p>
-        <div class="cards">
-            <div class="card">
-                <h3>6+</h3>
-                <p>Destinations</p>
-            </div>
-            <div class="card">
-                <h3>3+</h3>
-                <p>Active users</p>
-            </div>
-            <div class="card">
-                <h3>6+</h3>
-                <p>Trips planned</p>
-            </div>
-            <div class="card">
-                <h3>4.8</h3>
-                <p>User Rating</p>
+        <a class="login-btn" href="#"><i class="fa-solid fa-right-to-bracket"></i> Login/Register</a>
+      </div>
+    <!-- Hero Section -->
+    <header class="hero-section">
+        <div class="container text-center hero-content">
+            <h1 class="hero-title">
+                <i class="fas fa-globe-americas me-3"></i>Plan Your Dream Vacation
+            </h1>
+            <p class="hero-subtitle">Discover amazing destinations and organize your perfect trip with our comprehensive travel planning platform</p>
+            <div class="hero-buttons">
+                <a href="destinations.html" class="btn btn-primary btn-lg">
+                    <i class="fas fa-search me-2"></i>Explore Destinations
+                </a>
+                <a href="auth.html" class="btn btn-outline-light btn-lg">
+                    <i class="fas fa-user-plus me-2"></i>Get Started
+                </a>
             </div>
         </div>
-    </div>
-    <div class="section contact-form" style="background-color: #8d02ff;">
-
-           <div class="head" style="background-color: #8d02ff;">
-        <h1 style="color: white;"><i class="fa-solid fa-rocket"></i>Ready to start your journey?</h1>
-        <p style="color: white;">Discover amazing destinations and organize your perfect trip with our comprehensive planning platform.</p>
-        <div class="buttons">
-            <button><i class="fa-solid fa-magnifying-glass"></i>Explore Destinations</button>
-           <button style="color: #ffffff; border: 2px solid #ffffff;"> <i class="fa-solid fa-user-plus" ></i>Create Account</button>
+    </header>
+     </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="destinations.html">Destinations</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="my-trips.html">My Trips</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="favorites.html">Favorites</a>
+                    </li>
+                </ul>
+                <div class="d-flex">
+                    <a href="auth.html" class="btn btn-outline-light">
+                        <i class="fas fa-user me-2"></i>Login/Register
+                    </a>
+                </div>
+            </div>
         </div>
-    </div>
-  
-    <!-- <div class="login-form">
-        <h2>log in</h2>
-        <form id="loginForm">
-            <input type="text" id="username" placeholder= "User name"required>
-            <input type="email" id="email" placeholder="Email" required>
-            <input type="password" id="password" placeholder="Password" required>
-            <button type="submit">Log in</button>
-        </form>
-    </div> -->
-      <div class="footer">
-        <div class="footer-content">
-            <h3 style="text-align: start;"><i class="fa-solid fa-plane"></i>Travel Planner</h3>
-            <p  style="text-align: start;">Modern digital solutions for digital business growth.</p>
-        </div>
-       <p style="text-align: end;">@2025 Travel Planner. All rights reserved.</p>
-    </div>
-    
-    <script>
-        fetch("https://edu-me01.github.io/Traval-task/api/data.json") 
-            .then(response => response.json())
-            .then(data => {
-                console.log(data);
-                
-                 const projectDiv = document.getElementById('project');
-            data.destinations.slice(0, 3).forEach(item => {
-                const card = document.createElement('div');
-                    card.classList.add('card');
-                    card.innerHTML = `
-                      <img  src="${item.image}" alt="${item.title}" style="width: 100%; height: auto; border-radius: 10px;">
-                        <h3>${item.name}</h3>
-                         <h4>${item.description.slice(0,80)}...</h4>
-
-                         <div style="display: flex; justify-content: space-between; align-items: center; ">
-                             <p style=" color: white;background:linear-gradient(11deg, #a202ff 0%, #1e3a8a 100%); padding: 5px 10px; border-radius: 5px;">${item.country}</p>
-                  <button style="background-color: #1e3a8a; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; background:linear-gradient(11deg, #a202ff 0%, #1e3a8a 100%);"><i class="fa-solid fa-eye"></i>View Details</button>
+    <!-- Features Section -->
+        <div class="container">
+        <div class="features-section">
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <h3 class="feature-title">Discover Destinations</h3>
+                        <p class="feature-text">Explore thousands of amazing destinations around the world with detailed information and stunning photos.</p>
                     </div>
-                    `;
-             
-     projectDiv.appendChild(card);
-                });
-            })
-            .catch(error => console.error('Error fetching data:', error));
-    </script>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <h3 class="feature-title">Plan Your Trip</h3>
+                        <p class="feature-text">Create detailed itineraries, set travel dates, and organize your perfect vacation with our intuitive planner.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-cloud-sun"></i>
+                        </div>
+                        <h3 class="feature-title">Weather Info</h3>
+                        <p class="feature-text">Get real-time weather information for your destinations to help you pack and plan accordingly.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-share-alt"></i>
+                        </div>
+                        <h3 class="feature-title">Share & Collaborate</h3>
+                        <p class="feature-text">Share your travel plans with friends and family, or collaborate on group trips together.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Featured Destinations Section -->
+        <div class="destinations-section">
+            <h2 class="section-title">
+                <i class="fas fa-star me-3"></i>Featured Destinations
+            </h2>
+            <p class="section-subtitle">Explore our handpicked selection of amazing destinations around the world</p>
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4" id="featuredDestinations">
+                <!-- Loading State -->
+                <div class="col-12">
+                    <div class="loading-spinner">
+                        <div class="spinner-border" role="status">
+                            <span class="visually-hidden">Loading featured destinations...</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Statistics Section -->
+        <div class="stats-section">
+            <h2 class="section-title">
+                <i class="fas fa-chart-bar me-3"></i>Travel Statistics
+            </h2>
+            <p class="section-subtitle">Join thousands of travelers who trust our platform</p>
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="stat-item">
+                        <div class="stat-number" id="totalDestinations">250+</div>
+                        <div class="stat-label">Destinations</div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="stat-item">
+                        <div class="stat-number" id="activeUsers">10K+</div>
+                        <div class="stat-label">Active Users</div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="stat-item">
+                        <div class="stat-number" id="plannedTrips">50K+</div>
+                        <div class="stat-label">Trips Planned</div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="stat-item">
+                        <div class="stat-number" id="userRating">4.8</div>
+                        <div class="stat-label">User Rating</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Call to Action Section -->
+        <div class="cta-section">
+            <div class="cta-content">
+                <h2 class="cta-title">
+                    <i class="fas fa-rocket me-3"></i>Ready to Start Your Journey?
+                </h2>
+                <p class="cta-text">Join thousands of travelers who are already planning their next adventure with us</p>
+                <div class="hero-buttons">
+                    <a href="destinations.html" class="btn btn-primary btn-lg">
+                        <i class="fas fa-search me-2"></i>Browse Destinations
+                    </a>
+                    <a href="auth.html" class="btn btn-outline-light btn-lg">
+                        <i class="fas fa-user-plus me-2"></i>Create Account
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <h5 class="mb-3">
+                        <i class="fas fa-plane me-2"></i>Travel Planner
+                    </h5>
+                    <p class="mb-0">Your ultimate companion for planning the perfect vacation.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <div class="social-links mb-3">
+                        <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                    <p class="mb-0">&copy; 2023 Travel Planner. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="js/api.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/destinations.js"></script>
     <script>
-        
-        const authButton = document.getElementById('authButton');
-        authButton.addEventListener('click', function(e) {
-            e.preventDefault();
-            if (!isLoggedIn) {
-                document.querySelector('.login-form').classList.toggle('active');
-            }
-        });
-        var loginForm = document.getElementById('loginForm');
-        let isLoggedIn = false;
-        let validUsers = {
-           'hady mohamed' : { email: 'zw@g.c', password:'password123' }
-        };
-        // loginForm.addEventListener('submit', function(e) {
-        //     e.preventDefault();
-        //     const username = document.getElementById('username').value;
-        //     const email = document.getElementById('email').value;
-        //     const password = document.getElementById('password').value;
-        //     if (validUsers['user1'].email === email && validUsers['user1'].password === password) {
-        //         isLoggedIn = true;
-        //         authButton.textContent = `أهلاً، ${username}`;
-        //         authButton.classList.remove('login');
-        //         authButton.classList.add('logout');
-        //         authButton.onclick = logout;
-        //         document.querySelector('.login-form').classList.remove('active');
-        //         alert('تم تسجيل الدخول بنجاح!');
-        //     } else {
-        //         alert('بيانات تسجيل الدخول غير صحيحة.');
-        //     }
-        // });
-      
-      
-        function logout(e) {
-            e.preventDefault();
-            isLoggedIn = false;
-            authButton.textContent = 'تسجيل الدخول';
-            authButton.classList.remove('logout');
-            authButton.classList.add('login');
-            authButton.onclick = () => document.querySelector('.login-form').classList.toggle('active');
-            alert('تم تسجيل الخروج بنجاح!');
-        }
-        document.querySelectorAll('form').forEach(form => {
-            if (form !== loginForm) {
-                form.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    alert('تم الإرسال بنجاح!');
+        // Enhanced homepage functionality with API integration
+        document.addEventListener('DOMContentLoaded', async function() {
+            // Load initial data
+            await loadFeaturedDestinations();
+            await loadStatistics();
+            
+            // Animate statistics on scroll
+            const stats = document.querySelectorAll('.stat-number');
+            const observerOptions = {
+                threshold: 0.5,
+                rootMargin: '0px 0px -100px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateNumber(entry.target);
+                        observer.unobserve(entry.target);
+                    }
                 });
-            }
+            }, observerOptions);
+            
+            stats.forEach(stat => observer.observe(stat));
+            
+            // Add smooth animations to feature cards
+            const featureCards = document.querySelectorAll('.feature-card');
+            featureCards.forEach((card, index) => {
+                card.style.animationDelay = `${index * 0.1}s`;
+                card.classList.add('animate__animated', 'animate__fadeInUp');
+            });
         });
+        
+        function animateNumber(element) {
+            const target = parseInt(element.textContent.replace(/\D/g, ''));
+            const duration = 2000;
+            const step = target / (duration / 16);
+            let current = 0;
+            
+            const timer = setInterval(() => {
+                current += step;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
+                }
+                
+                if (element.textContent.includes('+')) {
+                    element.textContent = Math.floor(current) + '+';
+                } else if (element.textContent.includes('.')) {
+                    element.textContent = (current / 10).toFixed(1);
+                } else {
+                    element.textContent = Math.floor(current);
+                }
+            }, 16);
+        }
+        
+        // Enhanced destination loading with API
+        async function loadFeaturedDestinations() {
+    try {
+        const res = await fetch("https://edu-me01.github.io/Traval-task/api/data.json");
+        const data = await res.json();
+        const destinations = data.destinations;
+
+        const container = document.getElementById("featuredDestinations");
+        container.innerHTML = destinations.map(dest => `
+            <div class="col">
+                <div class="destination-card">
+                    <img src="${dest.image}" alt="${dest.name}" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">${dest.name}</h5>
+                        <p class="card-text">${dest.description.substring(0, 100)}...</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="region-badge">${dest.country}</span>
+                            <a href="trip-details.html?id=${dest.id}" class="btn btn-primary btn-sm">
+                                <i class="fas fa-eye me-1"></i>View Details
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `).join("");
+
+    } catch (error) {
+        console.error("Error loading featured destinations:", error);
+        showError("Failed to load featured destinations");
+    }
+}
+
+        async function loadStatistics() {
+            try {
+                const stats = await travelAPI.getStatistics();
+                const destStats = await travelAPI.getDestinationStatistics();
+                const tripStats = await travelAPI.getTripStatistics();
+                
+                // Update statistics with real data
+                document.getElementById('totalDestinations').textContent = destStats.total + '+';
+                document.getElementById('activeUsers').textContent = stats.totalUsers + 'K+';
+                document.getElementById('plannedTrips').textContent = tripStats.total + 'K+';
+                document.getElementById('userRating').textContent = '4.8';
+                
+                // Animate the numbers
+                setTimeout(() => {
+                    animateNumber(document.getElementById('totalDestinations'));
+                    animateNumber(document.getElementById('activeUsers'));
+                    animateNumber(document.getElementById('plannedTrips'));
+                }, 500);
+                
+            } catch (error) {
+                console.error('Error loading statistics:', error);
+            }
+        }
+        
+        function displayFeaturedDestinations(destinations) {
+            const container = document.getElementById('featuredDestinations');
+            
+            container.innerHTML = destinations.map(dest => `
+                <div class="col">
+                    <div class="destination-card">
+                        <img src="${dest.image}" alt="${dest.name}" class="card-img-top">
+                        <div class="card-body">
+                            <h5 class="card-title">${dest.name}</h5>
+                            <p class="card-text">${dest.description.substring(0, 100)}...</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="region-badge">${dest.region}</span>
+                                <a href="trip-details.html?id=${dest.id}" class="btn btn-primary btn-sm">
+                                    <i class="fas fa-eye me-1"></i>View Details
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+        
+        function showError(message) {
+            const container = document.getElementById('featuredDestinations');
+            container.innerHTML = `
+                <div class="col-12">
+                    <div class="text-center text-danger py-4">
+                        <i class="fas fa-exclamation-triangle fa-3x mb-3"></i>
+                        <h4>Error</h4>
+                        <p>${message}</p>
+                        <button class="btn btn-primary" onclick="loadFeaturedDestinations()">
+                            <i class="fas fa-refresh me-2"></i>Try Again
+                        </button>
+                    </div>
+                </div>
+            `;
+        }
     </script>
 </body>
 </html>
