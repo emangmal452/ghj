@@ -786,37 +786,32 @@ document.addEventListener('DOMContentLoaded', async function() {
         }
         
         async function deleteTrip(tripId) {
-            const result = await Swal.fire({
-                title: 'Delete Trip?',
-                text: 'This action cannot be undone.',
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#dc3545',
-                cancelButtonColor: '#6c757d',
-                confirmButtonText: 'Yes, delete it',
-                cancelButtonText: 'Cancel'
-            });
-            
-            if (result.isConfirmed) {
-                try {
-                    const response = await travelAPI.deleteTrip(tripId);
-                    
-                    if (response.success) {
-                        // Remove trip from local array and display
-                        allTrips = allTrips.filter(trip => trip.id !== tripId);
-                        displayTrips(allTrips);
-                        updateStats(allTrips);
-                        
-                        Swal.fire('Deleted!', 'The trip has been removed.', 'success');
-                    } else {
-                        throw new Error('Failed to delete trip');
-                    }
-                } catch (error) {
-                    console.error('Error deleting trip:', error);
-                    Swal.fire('Error', 'Failed to delete trip. Please try again.', 'error');
-                }
-            }
+    const result = await Swal.fire({
+        title: 'Delete Trip?',
+        text: 'This action cannot be undone.',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#dc3545',
+        cancelButtonColor: '#6c757d',
+        confirmButtonText: 'Yes, delete it',
+        cancelButtonText: 'Cancel'
+    });
+
+    if (result.isConfirmed) {
+        try {
+            // حذف الرحلة من الذاكرة فقط
+            allTrips = allTrips.filter(trip => trip.id !== tripId);
+            displayTrips(allTrips);
+            updateStats(allTrips);
+
+            Swal.fire('Deleted!', 'The trip has been removed.', 'success');
+        } catch (error) {
+            console.error('Error deleting trip:', error);
+            Swal.fire('Error', 'Failed to delete trip. Please try again.', 'error');
         }
+    }
+}
+
         
         function showError(message) {
             const grid = document.getElementById('savedTripsGrid');
