@@ -774,7 +774,7 @@
                     topAttractionsList.appendChild(li);
                 });
 
-                // Populate Travel Info
+                
                 travelInfoList.innerHTML = ''; 
                 currentDestination.travelInfo.forEach(info => {
                     const li = document.createElement('li');
@@ -782,7 +782,7 @@
                     travelInfoList.appendChild(li);
                 });
 
-                // Populate Weather
+                
                 minTemp.textContent = currentDestination.weather.min;
                 maxTemp.textContent = currentDestination.weather.max;
                 windSpeed.textContent = currentDestination.weather.wind;
